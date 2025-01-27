@@ -10,49 +10,47 @@
 
 */
 
-@keyframes heart {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes sparks {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100%;
-  }
-}
+/* Задала странице размеры, шрифт, фоновый градиент, использовала грид для лейаута */
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-inline-size: 696px;
+  /* padding-inline: 43rem; */
   font-family: var(--font-1), sans-serif;
   display: grid;
   justify-self: center;
 
   grid-template-columns: 1fr;
-  
+
   /*background-image: url(../images/background.png);*/
-  background-image: 
-    repeating-linear-gradient(to right, var(--linear-gradient, #d3d3d3) 0, var(--linear-gradient, #d3d3d3) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(to bottom, var(--linear-gradient, #d3d3d3) 0, var(--linear-gradient, #d3d3d3) 2px, transparent 2px, transparent 4px),
-    linear-gradient(to bottom, var(--linear-gradient-2, #e7e7e7), var(--linear-gradient-3, #1a1a1a));
+  background-image: repeating-linear-gradient(
+      to right,
+      var(--linear-gradient, #d3d3d3) 0,
+      var(--linear-gradient, #d3d3d3) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--linear-gradient, #d3d3d3) 0,
+      var(--linear-gradient, #d3d3d3) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--linear-gradient-2, #e7e7e7),
+      var(--linear-gradient-3, #1a1a1a)
+    );
+
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  max-inline-size: 696px;
   color: var(--text, #000);
 }
+
+/* Для шапки использовла флекс, также задала размеры, фон, отступы, границу */
 
 .header {
   display: flex;
@@ -66,6 +64,8 @@
   inline-size: 100%;
 }
 
+/* Заголовку и подзаголовку сделала резиновый шрифт и центрировала */
+
 .header__title {
   font-size: clamp(3.0625rem, 2.7768rem + 1.4286vw, 4.0625rem);
   text-align: center;
@@ -77,6 +77,8 @@
   font-size: clamp(0.875rem, 0.7143rem + 0.8036vw, 1.4375rem);
 }
 
+/* Для блока с контентом задала шрифты и отступы */
+
 .content {
   font-family: var(--font-2, sans-serif);
   justify-self: center;
@@ -84,45 +86,47 @@
   margin-block-end: 105px;
 }
 
+/* Для карточки задала фон, рамку */
+
 .article {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
   border: 2px solid var(--border-color, #000);
   background-color: var(--background-color, #fff);
 }
 
+/* Отступ между карточками */
+
 .list-item {
-  padding-block-end: 49px;
+  padding-block-end: 51px;
 }
+
+/* Шрифт, размеры, рамка и отступы для заголовка карточки */
 
 .article__title {
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   font-variation-settings: "wght" var(--font-weight-h3, 700);
   padding-block: 6px;
-  padding-inline: 10px;
+  padding-inline: 1%;
   border-block-end: 1px solid var(--border-color, #000);
 }
+
+/* Рамка для контейнера с картинкой и лейблом, а также позиционирование */
 
 .container__label {
   position: relative;
   border-block-end: 2px solid var(--border-color, #000);
 }
 
+/* Лейбл спозиционирован абсолютно, также ему задана тень */
+
 .label {
   position: absolute;
   top: 23px;
   right: 23px;
-  color: black;
   font-family: var(--font-1), sans-serif;
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
-  text-shadow: 
-    1px 1px 0px var(--text-stroke-color, #fff),
-
+  text-shadow: 1px 1px 0px var(--text-stroke-color, #fff),
     -1px 1px 0px var(--text-stroke-color, #fff),
-
     1px -1px 0px var(--text-stroke-color, #fff),
-
     -1px -1px 0px var(--text-stroke-color, #fff);
 
   background-color: transparent;
@@ -132,12 +136,19 @@
   z-index: 1;
 }
 
-@supports((text-stroke: 1px var(--text-stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--text-stroke-color, #fff))) {
+/* Директива для проверки поддержки text-stroke */
+
+@supports (
+  (text-stroke: 1px var(--text-stroke-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--text-stroke-color, #fff))
+) {
   .label {
     -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
-    -webkit-text-shadow: none;
+    text-shadow: none;
   }
 }
+
+/* Задала картинке размеры и положение */
 
 .image {
   display: block;
@@ -149,12 +160,14 @@
   object-fit: cover;
 }
 
+/* Фильтры для картинок */
+
 .image-beginning {
   filter: brightness(1) contrast(1.2);
 }
 
 .image-first-sprint {
-  filter: brightness(0.5) contrast(0.8) ;
+  filter: brightness(0.5) contrast(0.8);
 }
 
 .image-first-sprint-2 {
@@ -181,148 +194,65 @@
   filter: hue-rotate(80deg) blur(0.1rem) contrast(0.8);
 }
 
+/* Для описания карточки задала отступы, размер шрифта */
+
 .article__description {
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  padding: 28px 24px 0;
+  padding: 28px 23px 0;
   font-variation-settings: "wght" var(--font-weight-main, 400);
 }
+
+/* Для списка кнопок использовала флекс и добавила отступы */
 
 .list__button {
   display: flex;
   justify-content: end;
-  margin-inline-end: 23px;
+  margin-inline-end: 1.2vi;
   padding-block: 22px;
   gap: 5px;
 }
 
-.card__icon-button {
-  background-color: transparent;
-  padding-inline: 0;
-  border: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border: 1px solid var(--border-color, #000);
-}
-
-.sparks {
-  opacity: 0;
-}
-
-.core {
-  transition: fill 0.3s ease;
-}
-
-.main-body {
-  transition: fill 0.5s ease;
-  transition-delay: 0s;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--fill-countour, #000);
-  transition-delay: 0s;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--fill-countour, #000);
-  transition-delay: 0.03s;
-}
-
-.card__icon-button:not(:hover) .main-body {
-  fill: transparent;
-  transition-delay: 0.05s;
-  transition-duration: 0.3s;
-}
-
-.card__icon-button:not(:hover) .core {
-  fill: transparent;
-  transition-delay: 0.03s;
-  transition-duration: 0.3s;
-}
-
-.card__icon-button:active .core {
-  fill: var(--fill-core, #FF0000);
-  transition-delay: 0s;
-}
-
-.card__icon-button:active .main-body {
-  fill: var(--fill-core, #FF0000);
-  transition-delay: 0.3s;
-}
-
-.card__icon-button:not(:active) .core {
-  fill: transparent;
-  transition: fill 0.1s linear;
-}
-
-.card__icon-button:not(:active) .main-body {
-  fill: transparent;
-  transition: fill 0.1s linear;
-}
-
-.card__icon-button .like-icon.is-liked .contour {
-  fill: var(--fill-core, #FF0000);
-  transition-delay: 0.06s;
-  transition-duration: 0.3s;
-}
-
-.card__icon-button .like-icon.is-liked .core {
-  fill: var(--fill-core, #FF0000);
-  transition-delay: 0s;
-}
-
-.card__icon-button .like-icon.is-liked .main-body {
-  fill: var(--fill-core, #FF0000);
-  transition-delay: 0.3s;
-}
-
-.card__icon-button .like-icon.is-liked .heart {
-  animation: heart 0.3s ease-in 0.1s;
-}
-
-.card__icon-button .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s;
-}
+/* Для кнопки лайк задала размер и отступы */
 
 .card__like-button {
   display: block;
-  inline-size: 129px;
+  min-inline-size: 129px;
   padding-inline: 1.2rem;
   padding-block: 10px;
 }
 
+/* Для текста внутри кнопки задала свойство для плавной смены цвета текста */
+
 .button__text {
-  position: relative;
-  z-index: 1;
   mix-blend-mode: difference;
   color: var(--text-2, #fff);
 }
+
+/* Для кнопки задала фон, рамку, шрифт и позиционирование */
 
 .button {
   position: relative;
   background-color: var(--button-color, #fff);
   border: 2px solid var(--border-color, #000);
-  
+
   font-family: var(--font-1, sans-serif);
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
   font-variation-settings: "wght" var(--font-weight-main, 400);
 }
+
+/* Состояние focus-visible для кнопок */
 
 .button:focus-visible {
   outline: none;
   border: 2px solid var(--border-color, #000);
 
   box-shadow: 2px 2px 0px var(--border-color, #000);
-
 }
 
+/* Реализация смены цвета при клике с помощью псевдоэлемента */
+
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -340,6 +270,8 @@
   transform: scaleX(1);
 }
 
+/* Для кнопки сохранить использовала флекс и задала отступы */
+
 .button-save {
   display: flex;
   justify-self: center;
@@ -349,14 +281,16 @@
   padding: 1rem 1rem;
 }
 
+/* Для иконки задала размеры и свойство для смены цвета */
+
 .image-save {
-  position: relative;
-  z-index: 2;
   width: 21px;
   height: 21px;
   mix-blend-mode: difference;
   fill: var(--text-2, #fff);
 }
+
+/* Размеры иконки в модальном окне */
 
 dialog[open] .image-save {
   inline-size: 39px;
@@ -364,22 +298,27 @@ dialog[open] .image-save {
   align-self: center;
 }
 
+/* Лейаут модального окна через гриды, задала отступы, шрифт */
+
 dialog[open] {
   display: grid;
   grid-template-columns: 3rem 14rem;
   grid-template-rows: 4rem min-content;
-  padding: 30px;
+  padding: 1.5vi;
   gap: 19px;
   font-family: var(--font-1), sans-serif;
   text-transform: uppercase;
   font-size: 14px;
   line-height: 21px;
-  overflow: visible;
 }
+
+/* Затемнение фона в режиме модального окна */
 
 dialog[open]::backdrop {
   backdrop-filter: brightness(50%);
 }
+
+/* Для кнопки ок задала номер ячейки и отсутпы */
 
 .button-close {
   grid-column: 1 / 3;
@@ -389,18 +328,20 @@ dialog[open]::backdrop {
   inline-size: 100%;
 }
 
+/* Свойства для экранов 375px */
+
 @media (width <= 375px) {
   .header {
     min-block-size: 327px;
     gap: 20px;
   }
 
-  .list-item {
-    padding-block-end: 49px;
-  }
-
   .label {
     right: 10px;
+  }
+
+  .article__title {
+    padding-inline: 2%;
   }
 
   .article__description {
@@ -409,6 +350,7 @@ dialog[open]::backdrop {
 
   .list__button {
     padding-block: 23px;
+    margin-inline-end: 25px;
   }
 
   .button-save {
@@ -416,10 +358,8 @@ dialog[open]::backdrop {
     gap: 7px;
   }
 
-.image-save {
+  .image-save {
     width: 28px;
     height: 28px;
   }
-
 }
-
