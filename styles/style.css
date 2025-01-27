@@ -98,7 +98,7 @@
 
 .article__title {
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  font-variation-settings: var(--font-weight-h3, 700);
+  font-variation-settings: "wght" var(--font-weight-h3, 700);
   padding-block: 6px;
   padding-inline: 10px;
   border-block-end: 1px solid var(--border-color, #000);
@@ -184,7 +184,7 @@
 .article__description {
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   padding: 28px 24px 0;
-  font-variation-settings: var(--font-weight-main, 400);
+  font-variation-settings: "wght" var(--font-weight-main, 400);
 }
 
 .list__button {
@@ -310,7 +310,7 @@
   
   font-family: var(--font-1, sans-serif);
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
-  font-variation-settings: var(--font-weight-main, 400);
+  font-variation-settings: "wght" var(--font-weight-main, 400);
 }
 
 .button:focus-visible {
