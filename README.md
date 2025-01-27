@@ -1,1 +1,1 @@
-https://dasmindme.github.io/zakrivayuschiy-teg-f/
+https://github.com/dasmindme/zakrivayuschiy-teg-f
