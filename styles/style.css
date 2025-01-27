@@ -125,7 +125,8 @@
 
     -1px -1px 0px var(--text-stroke-color, #fff);
 
-  background-color: transparent; 
+  background-color: transparent;
+
   mix-blend-mode: hard-light;
   opacity: 0.5;
   z-index: 1;
@@ -295,14 +296,6 @@
   padding-block: 10px;
 }
 
-.button:focus-visible {
-  outline: none;
-  border: 2px solid var(--border-color, #000);
-
-  box-shadow: 2px 2px 0px var(--border-color, #000);
-
-}
-
 .button__text {
   position: relative;
   z-index: 1;
@@ -317,6 +310,7 @@
   
   font-family: var(--font-1, sans-serif);
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
+  font-variation-settings: var(--font-weight-main, 400);
 }
 
 .button:focus-visible {
