@@ -14,4 +14,9 @@
     --linear-gradient-3: #1a1a1a;
     --button-color: #fff;
     --button-color-2: #000;
+    --fill-core: #FF0000;
+    --fill-sparks: #FF0000;
+    --fill-countour: #000;
+    --fill-main-body: #fff;
+    --accent-color: #000;
 }
