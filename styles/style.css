@@ -17,37 +17,31 @@
   min-block-size: 100dvb;
   max-inline-size: 696px;
   /* padding-inline: 43rem; */
-  font-family: var(--font-1), sans-serif;
+  font-family: var(--font-header), sans-serif;
   display: grid;
   justify-self: center;
 
   grid-template-columns: 1fr;
 
   /*background-image: url(../images/background.png);*/
-  background-image: repeating-linear-gradient(
-      to right,
-      var(--linear-gradient, #d3d3d3) 0,
-      var(--linear-gradient, #d3d3d3) 2px,
+  background-image: repeating-linear-gradient(to right,
+      var(--linear-gradient-row, #d3d3d3) 0,
+      var(--linear-gradient-row, #d3d3d3) 2px,
       transparent 2px,
-      transparent 4px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      var(--linear-gradient, #d3d3d3) 0,
-      var(--linear-gradient, #d3d3d3) 2px,
+      transparent 4px),
+    repeating-linear-gradient(to bottom,
+      var(--linear-gradient-row, #d3d3d3) 0,
+      var(--linear-gradient-row, #d3d3d3) 2px,
       transparent 2px,
-      transparent 4px
-    ),
-    linear-gradient(
-      to bottom,
-      var(--linear-gradient-2, #e7e7e7),
-      var(--linear-gradient-3, #1a1a1a)
-    );
+      transparent 4px),
+    linear-gradient(to bottom,
+      var(--linear-gradient-column, #e7e7e7),
+      var(--linear-gradient-column-dark, #1a1a1a));
 
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: var(--text, #000);
+  color: var(--text-dark, #000);
 }
 
 /* Для шапки использовла флекс, также задала размеры, фон, отступы, границу */
@@ -57,8 +51,8 @@
   flex-direction: column;
   justify-content: center;
   margin-block: 100px;
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: var(--background-color, #fff);
+  border: 1px solid var(--button-color-dark, #000);
   gap: 1vi;
   min-block-size: 368px;
   inline-size: 100%;
@@ -80,7 +74,7 @@
 /* Для блока с контентом задала шрифты и отступы */
 
 .content {
-  font-family: var(--font-2, sans-serif);
+  font-family: var(--font-content, sans-serif);
   justify-self: center;
   inline-size: 100%;
   margin-block-end: 105px;
@@ -89,7 +83,7 @@
 /* Для карточки задала фон, рамку */
 
 .article {
-  border: 2px solid var(--border-color, #000);
+  border: 2px solid var(--button-color-dark, #000);
   background-color: var(--background-color, #fff);
 }
 
@@ -106,14 +100,14 @@
   font-variation-settings: "wght" var(--font-weight-h3, 700);
   padding-block: 6px;
   padding-inline: 1%;
-  border-block-end: 1px solid var(--border-color, #000);
+  border-block-end: 1px solid var(--button-color-dark, #000);
 }
 
 /* Рамка для контейнера с картинкой и лейблом, а также позиционирование */
 
 .container__label {
   position: relative;
-  border-block-end: 2px solid var(--border-color, #000);
+  border-block-end: 2px solid var(--button-color-dark, #000);
 }
 
 /* Лейбл спозиционирован абсолютно, также ему задана тень */
@@ -138,10 +132,7 @@
 
 /* Директива для проверки поддержки text-stroke */
 
-@supports (
-  (text-stroke: 1px var(--text-stroke-color, #fff)) or
-    (-webkit-text-stroke: 1px var(--text-stroke-color, #fff))
-) {
+@supports ((text-stroke: 1px var(--text-stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--text-stroke-color, #fff))) {
   .label {
     -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
     text-shadow: none;
@@ -162,35 +153,35 @@
 
 /* Фильтры для картинок */
 
-.image-beginning {
+.image-brightness-contrast-high {
   filter: brightness(1) contrast(1.2);
 }
 
-.image-first-sprint {
+.image-brightness-contrast-low {
   filter: brightness(0.5) contrast(0.8);
 }
 
-.image-first-sprint-2 {
+.image-saturate {
   filter: saturate(1.9) brightness(1.5) contrast(1.7);
 }
 
-.image-second-sprint {
+.image-sepia-brightnes-contrast {
   filter: brightness(1.6) contrast(1.2) sepia(0.5);
 }
 
-.image-second-sprint-2 {
+.image-invert {
   filter: invert(0.9) contrast(0.8);
 }
 
-.image-third-sprint {
+.image-sepia {
   filter: sepia(1);
 }
 
-.image-third-sprint-2 {
+.image-blur {
   filter: blur(0.8rem);
 }
 
-.image-now {
+.image-hue-rotate {
   filter: hue-rotate(80deg) blur(0.1rem) contrast(0.8);
 }
 
@@ -204,7 +195,7 @@
 
 /* Для списка кнопок использовала флекс и добавила отступы */
 
-.list__button {
+.container__button {
   display: flex;
   justify-content: end;
   margin-inline-end: 1.2vi;
@@ -225,17 +216,17 @@
 
 .button__text {
   mix-blend-mode: difference;
-  color: var(--text-2, #fff);
+  color: var(--text-light, #fff);
 }
 
 /* Для кнопки задала фон, рамку, шрифт и позиционирование */
 
 .button {
   position: relative;
-  background-color: var(--button-color, #fff);
-  border: 2px solid var(--border-color, #000);
+  background-color: var(--button-color-light, #fff);
+  border: 2px solid var(--button-color-dark, #000);
 
-  font-family: var(--font-1, sans-serif);
+  font-family: var(--font-button, sans-serif);
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
   font-variation-settings: "wght" var(--font-weight-main, 400);
 }
@@ -244,9 +235,9 @@
 
 .button:focus-visible {
   outline: none;
-  border: 2px solid var(--border-color, #000);
+  border: 2px solid var(--button-color-dark, #000);
 
-  box-shadow: 2px 2px 0px var(--border-color, #000);
+  box-shadow: 2px 2px 0px var(--button-color-dark, #000);
 }
 
 /* Реализация смены цвета при клике с помощью псевдоэлемента */
@@ -258,7 +249,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--button-color-2, #000);
+  background-color: var(--button-color-dark, #000);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
@@ -287,7 +278,7 @@
   width: 21px;
   height: 21px;
   mix-blend-mode: difference;
-  fill: var(--text-2, #fff);
+  fill: var(--text-light, #fff);
 }
 
 /* Размеры иконки в модальном окне */
@@ -306,7 +297,7 @@ dialog[open] {
   grid-template-rows: 4rem min-content;
   padding: 1.5vi;
   gap: 19px;
-  font-family: var(--font-1), sans-serif;
+  font-family: var(--font-button, sans-serif);
   text-transform: uppercase;
   font-size: 14px;
   line-height: 21px;
@@ -330,7 +321,7 @@ dialog[open]::backdrop {
 
 /* Свойства для экранов 375px */
 
-@media (width <= 375px) {
+@media (width <=375px) {
   .header {
     min-block-size: 327px;
     gap: 20px;
@@ -348,7 +339,7 @@ dialog[open]::backdrop {
     padding: 25px 25px 0;
   }
 
-  .list__button {
+  .container__button {
     padding-block: 23px;
     margin-inline-end: 25px;
   }

@@ -1,19 +1,20 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-    --font-1: 'PressStart2P';
-    --font-2: 'Inter-Variable';
+    --font-header: 'PressStart2P';
+    --font-button: 'PressStart2P';
+    --font-content: 'Inter-Variable';
     --font-weight-h3: 700;
     --font-weight-main: 400;
     --text-stroke-color: #fff;
     --border-color: #000;
-    --text: #000;
-    --text-2: #fff;
+    --text-dark: #000;
+    --text-light: #fff;
     --background-color: #fff;
-    --linear-gradient: #d3d3d3;
-    --linear-gradient-2: #e7e7e7;
-    --linear-gradient-3: #1a1a1a;
-    --button-color: #fff;
-    --button-color-2: #000;
+    --linear-gradient-row: #d3d3d3;
+    --linear-gradient-column: #e7e7e7;
+    --linear-gradient-column-dark: #1a1a1a;
+    --button-color-light: #fff;
+    --button-color-dark: #000;
     --fill-core: #FF0000;
     --fill-sparks: #FF0000;
     --fill-countour: #000;
