@@ -104,6 +104,7 @@
 
 .card__icon-button .like-icon.is-liked .heart {
   animation: heart 0.3s ease-in 0.1s;
+  transform-origin: center center;
 }
 
 .card__icon-button .like-icon.is-liked .sparks {

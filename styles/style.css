@@ -16,27 +16,16 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   max-inline-size: 696px;
-  /* padding-inline: 43rem; */
-  font-family: var(--font-header), sans-serif;
+  font-family: var(--accent-font), sans-serif;
   display: grid;
   justify-self: center;
 
   grid-template-columns: 1fr;
 
+  background-color: #d3d3d3;
+
   /*background-image: url(../images/background.png);*/
-  background-image: repeating-linear-gradient(to right,
-      var(--linear-gradient-row, #d3d3d3) 0,
-      var(--linear-gradient-row, #d3d3d3) 2px,
-      transparent 2px,
-      transparent 4px),
-    repeating-linear-gradient(to bottom,
-      var(--linear-gradient-row, #d3d3d3) 0,
-      var(--linear-gradient-row, #d3d3d3) 2px,
-      transparent 2px,
-      transparent 4px),
-    linear-gradient(to bottom,
-      var(--linear-gradient-column, #e7e7e7),
-      var(--linear-gradient-column-dark, #1a1a1a));
+  background-image: var(--bg-image);
 
   background-position: center;
   background-size: cover;
@@ -52,7 +41,7 @@
   justify-content: center;
   margin-block: 100px;
   background-color: var(--background-color, #fff);
-  border: 1px solid var(--button-color-dark, #000);
+  border: 2px solid var(--button-color-dark, #000);
   gap: 1vi;
   min-block-size: 368px;
   inline-size: 100%;
@@ -74,7 +63,7 @@
 /* Для блока с контентом задала шрифты и отступы */
 
 .content {
-  font-family: var(--font-content, sans-serif);
+  font-family: var(--main-font, sans-serif);
   justify-self: center;
   inline-size: 100%;
   margin-block-end: 105px;
@@ -97,7 +86,7 @@
 
 .article__title {
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  font-variation-settings: "wght" var(--font-weight-h3, 700);
+  font-variation-settings: "wght" var(--font-weight-L, 700);
   padding-block: 6px;
   padding-inline: 1%;
   border-block-end: 1px solid var(--button-color-dark, #000);
@@ -116,7 +105,7 @@
   position: absolute;
   top: 23px;
   right: 23px;
-  font-family: var(--font-1), sans-serif;
+  font-family: var(--accent-font), sans-serif;
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
   text-shadow: 1px 1px 0px var(--text-stroke-color, #fff),
     -1px 1px 0px var(--text-stroke-color, #fff),
@@ -145,8 +134,7 @@
   display: block;
   inline-size: 100%;
   block-size: 100%;
-  background-size: cover;
-  background-position: center;
+  object-position: center;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
@@ -210,6 +198,7 @@
   min-inline-size: 129px;
   padding-inline: 1.2rem;
   padding-block: 10px;
+  transition: box-shadow 0.5s ease-in-out;
 }
 
 /* Для текста внутри кнопки задала свойство для плавной смены цвета текста */
@@ -225,8 +214,8 @@
   position: relative;
   background-color: var(--button-color-light, #fff);
   border: 2px solid var(--button-color-dark, #000);
-
-  font-family: var(--font-button, sans-serif);
+  transition: box-shadow 0.5s ease-in-out;
+  font-family: var(--accent-font, sans-serif);
   font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
   font-variation-settings: "wght" var(--font-weight-main, 400);
 }
@@ -235,8 +224,6 @@
 
 .button:focus-visible {
   outline: none;
-  border: 2px solid var(--button-color-dark, #000);
-
   box-shadow: 2px 2px 0px var(--button-color-dark, #000);
 }
 
@@ -297,7 +284,7 @@ dialog[open] {
   grid-template-rows: 4rem min-content;
   padding: 1.5vi;
   gap: 19px;
-  font-family: var(--font-button, sans-serif);
+  font-family: var(--accent-font, sans-serif);
   text-transform: uppercase;
   font-size: 14px;
   line-height: 21px;
@@ -306,7 +293,7 @@ dialog[open] {
 /* Затемнение фона в режиме модального окна */
 
 dialog[open]::backdrop {
-  backdrop-filter: brightness(50%);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Для кнопки ок задала номер ячейки и отсутпы */
