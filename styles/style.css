@@ -274,16 +274,17 @@ dialog[open] .image-save {
   inline-size: 39px;
   block-size: 39px;
   align-self: center;
+  justify-self: center;
 }
 
 /* Лейаут модального окна через гриды, задала отступы, шрифт */
 
 dialog[open] {
   display: grid;
-  grid-template-columns: 3rem 14rem;
-  grid-template-rows: 4rem min-content;
-  padding: 1.5vi;
-  gap: 19px;
+  inline-size: 341px;
+  grid-template-columns: min-content 1fr;
+  padding: 30px;
+  gap: 20px;
   font-family: var(--accent-font, sans-serif);
   text-transform: uppercase;
   font-size: 14px;
@@ -293,7 +294,7 @@ dialog[open] {
 /* Затемнение фона в режиме модального окна */
 
 dialog[open]::backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Для кнопки ок задала номер ячейки и отсутпы */
@@ -304,6 +305,7 @@ dialog[open]::backdrop {
   padding-block: 10px;
   text-transform: uppercase;
   inline-size: 100%;
+  margin-block-start: 10px;
 }
 
 /* Свойства для экранов 375px */
@@ -339,5 +341,9 @@ dialog[open]::backdrop {
   .image-save {
     width: 28px;
     height: 28px;
+  }
+
+  dialog[open] {
+    padding: 30px 40px;
   }
 }
